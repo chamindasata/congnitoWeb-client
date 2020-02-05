@@ -47,12 +47,30 @@ export default class Home extends Component {
   }
 
   renderTest() {
+    this.renderTestAPI(this.state.testApiCall);
     return (
       <div className="test">
-        <PageHeader>Test API call</PageHeader>
-        <ListGroup>
-          {!this.state.isLoading && this.renderTestAPI(this.state.testApiCall)}
-        </ListGroup>
+        <h2>ToDos</h2>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Text</th>
+              <th>createdAt</th>
+              <th>updatedAt</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.testApiCall.map(todos => {
+              return (
+                <tr key={todos.id}>
+                  <td>{todos.text}</td>
+                  <td>{todos.createdAt}</td>
+                  <td>{todos.updatedAt}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
