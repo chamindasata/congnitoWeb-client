@@ -29,7 +29,7 @@ export default class Home extends Component {
   }
 
   testApiCall() {
-    return API.get("testApiCall", "/todos");
+    return API.get("todos", "/todos");
   }
 
   renderTestAPI(testApiCall) {
